@@ -1,7 +1,3 @@
-;;Philip Golden - PSG14b
-;;Project 3
-;;COP4020
-
 
 ;;This function is called to delete a student from the roster, either by name or ID. Depending on 
 ;;which of the two option is entered, the function then starts at the head of the roster and is 
