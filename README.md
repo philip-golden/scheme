@@ -1,2 +1,3 @@
 # Scheme Project
-This is a simple class roster management system that provides functions to a user for entering, removing, and displaying student information in a course roster using the Scheme language. 
+This is a class roster management system that provides functionality for a user to enter, remove, and display student information in a course roster using the Scheme language. The system can store a student ID (string of digits), student name (a string of characters), and student grade (an integer). Student information can be loaded to the system from a file, or entered by a user to be saved in a file. The system can also sort a class roster either by ID, name, or grade. While running scheme the system can be executed with the following expressions: 1]=> (load "roster")
+             1]=>(menu'())
