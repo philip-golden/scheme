@@ -1,8 +1,5 @@
 
-;;This function is called to delete a student from the roster, either by name or ID. Depending on 
-;;which of the two option is entered, the function then starts at the head of the roster and is 
-;;recursively called upon minus the head until a match is found. 
-
+;;This function is called to delete a student from the roster, either by name or ID. 
 (define stud-delete
 	(lambda (input lst)
 		(cond  ((null? lst)
@@ -29,10 +26,7 @@
 	)
 )	
 
-;;This function is called to display information pertaining to a specific student. Since the 
-;;output for each input case (ID or Name) is the same, I was able to combine them into the same 
-;;condition using the 'or' special form, unlike the previous funtion where the output differs.  
-
+;;This function is called to display information pertaining to a specific student.  
 (define stud-info
 	(lambda (input lst)
 		(cond 
@@ -58,9 +52,7 @@
 )
 
 ;;This function is used as a parameter to the view-roster function in order to sort the roster by 
-;;student ID. Im not sure if this is the correct use of casting since the ID's are numbers, but 
-;;when I tried replacing (string<?) with (number<?) I was not obtaining the correct output.
-
+;;student ID. 
 (define by-id
         (lambda (first second)
                 (cond ((string<? (car first) (car second)) #t)
@@ -70,9 +62,7 @@
 )
 
 ;;This function is used as a parameter to the view-roster function in order to sort the roster by 
-;;student name. Here, it made perfect sense to me to use casting making each object (first & 
-;;second) string types unlike the by-id function. 
-
+;;student name.
 (define by-name
 	(lambda (first second)
 		(cond ((string<? (cadr first) (cadr second)) #t)
@@ -82,10 +72,7 @@
 )
 
 ;;This function is used as a parameter to the view-roster function in order to sort the roster by 
-;;grade in ascending order. No casting was needed here because the condition could be checked with 
-;;basic numeric comparison... However I am still unsure why it would not allow me to do this with 
-;;by-id function.
-
+;;grade in ascending order. 
 (define by-grade
 	(lambda (first second)
 		(cond ((< (caddr first) (caddr second)) #t)
@@ -95,9 +82,7 @@
 )
 
 ;;This function is used to display the roster in a specified manner (either sorted by ID, name, or 
-;;grade) which is passed to the function when called. If the roster is empty, display error 
-;;message.
-
+;;grade) which is passed to the function when called. 
 (define view-roster
         (lambda(lst x)
                 (cond ((null? lst))
@@ -117,10 +102,7 @@
 )
 
 ;;This function allows a user to add a student's information to the roster, including: ID, name, 
-;;and grade. I found this function fairly easy to write becase of the example t2.scm. However, it 
-;;took me a while to realize that with this function the implementation shown in t1.scm was not 
-;;needed and was causing errors in other parts of my program until I deleted it.
-
+;;and grade.
 (define sec-input-stud
 	(lambda(n lst)
 		(cond ((= n 0) (begin
@@ -139,11 +121,7 @@
 	) 
 )
 
-;;This function controls the action performed by each menu choice. I had trouble at first with the 
-;;load/store file functionality. Originally I did not realize the need for the use of 'let' 
-;;special form so that I could use 'infile' and 'outfile' as local bindings to the name entered by 
-;;a user. 
-
+;;This function controls the action performed by each menu choice. 
 (define performtask
 	(lambda (n roster)
 		(cond((= n 0) (begin
@@ -216,7 +194,6 @@
 		)
 	)
 )
-				
 
 (define menu
 	(lambda(roster)
